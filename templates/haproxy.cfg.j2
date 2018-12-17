@@ -33,9 +33,9 @@ listen stats
 #       stats  auth admin:1234aaAA
     stats show-legends
 
-#cache test
-#    total-max-size 4
-#    max-age 240
+cache test
+    total-max-size 4
+    max-age 240
 
 backend st_src_global
     stick-table type ip size 1m expire 10s store http_req_rate(10s),http_err_rate(10s),conn_cur,conn_rate(3s)
