@@ -30,7 +30,7 @@ listen stats
     stats  hide-version
     stats  realm Haproxy\ Statistics
     stats  uri /
-#       stats  auth admin:1234aaAA
+#   stats  auth admin:1234aaAA
     stats show-legends
 
 cache test
@@ -40,8 +40,6 @@ cache test
 backend st_src_global
     stick-table type ip size 1m expire 10s store http_req_rate(10s),http_err_rate(10s),conn_cur,conn_rate(3s)
 
-
-
 # frontend httpsin
 #        bind *:80
 #        bind *:443 ssl crt /etc/haproxy/docker.pem alpn h2,http/1.1
@@ -50,17 +48,17 @@ backend st_src_global
 
 
 frontend test1
-        bind *:7223
-        default_backend mSite
+    bind *:7223
+    default_backend mSite
 
 frontend test
-        bind *:7221  ssl crt /etc/ssl/certs/haproxy.pem alpn h2,http/1.1
-        tcp-request content track-sc0 src table st_src_global
-        tcp-request content reject if { sc_conn_cur(0) gt 1000 }
-        http-request cache-use test
-        redirect scheme https code 301 if !{ ssl_fc }
-        http-response cache-store test
-        default_backend mSite
+    bind *:7221  ssl crt /etc/ssl/certs/haproxy.pem alpn h2,http/1.1
+    tcp-request content track-sc0 src table st_src_global
+    tcp-request content reject if { sc_conn_cur(0) gt 1000 }
+    http-request cache-use test
+    redirect scheme https code 301 if !{ ssl_fc }
+    http-response cache-store test
+    default_backend mSite
 		
 frontend mSiteFrontEnd
     bind *:7220
