@@ -1,4 +1,3 @@
 ---
 - include: haproxy.yml
-- include: hatop.yml
 - include: keepalived.yml
