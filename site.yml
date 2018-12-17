@@ -3,3 +3,6 @@
     - vars/main.yml
   tasks:
     - include: tasks/main.yml
+
+  handlers:
+    - handlers/main.yml
