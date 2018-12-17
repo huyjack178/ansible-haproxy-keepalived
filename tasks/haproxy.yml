@@ -23,3 +23,7 @@
 
 - name: Ensure HAProxy is started and enabled on boot.
   service: name=haproxy state=started enabled=yes
+
+- name: Put rsyslogd config file in /etc/rsyslog.d/
+  copy: src=files/49-haproxy.conf dest=/etc/rsyslog.d/49-haproxy.conf owner=root group=root mode=0644
+  notify: restart rsyslogd
