@@ -13,6 +13,9 @@
   with_items:
     - haproxy
 
+- name: Put haproxy-key for SSL
+  copy: src=files/haproxy-key.pem dest=/etc/ssl/haproxy-key.pem owner=root group=root mode=0644
+
 - name: Copy HAProxy configuration in place.
   template:
     src: haproxy.cfg.j2
