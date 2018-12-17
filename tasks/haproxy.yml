@@ -26,7 +26,7 @@
 
 - name: Put rsyslogd config file in /etc/rsyslog.d/
   copy: src=files/49-haproxy.conf dest=/etc/rsyslog.d/49-haproxy.conf owner=root group=root mode=0644
-  notify: restart rsyslogd
+  notify: restart rsyslog
 
-- name: Ensure rsyslogd is started and enabled on boot.
+- name: Ensure rsyslog is started and enabled on boot.
   service: name=rsyslog state=started enabled=yes
