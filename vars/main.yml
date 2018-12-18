@@ -9,5 +9,4 @@ haproxy_major_version: 1.8
 
 # Consul setting
 consul_version: 1.4.0
-consul_server_ip: {{ ansible_ssh_host }}
 consul_config_dir: /etc/systemd/system/consul.d
