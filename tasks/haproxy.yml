@@ -9,7 +9,7 @@
     repo: 'ppa:vbernat/haproxy-{{ haproxy_major_version }}'
 
 - name: Install HAProxy
-  action: apt pkg=$item state=latest
+  action: apt pkg= {{ haproxy }} state=latest
   with_items:
     - haproxy
 
