@@ -5,7 +5,7 @@
     restart_policy: always
     state: started
     command: -server -bootstrap -ui-dir /ui
-    ports:
-    - 8500:8500
-    - 8400:8400
-    - 8600:53/udp
+    published_ports:
+      - 8500:8500
+      - 8400:8400
+      - 8600:53/udp
