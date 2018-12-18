@@ -1,3 +1,4 @@
 ---
 - include: haproxy.yml
 - include: keepalived.yml
+- include: consul.yml
