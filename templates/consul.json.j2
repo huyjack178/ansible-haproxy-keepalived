@@ -2,7 +2,8 @@
 	"server": true,
 	"ui": true,
 	"advertise_addr": "{{ ansible_ssh_host }}",
-	"client_addr": "{{ ansible_ssh_host }}",
+	"client_addr": "0.0.0.0",
 	"data_dir": "/tmp/consul",
 	"bootstrap_expect": 1
+	"retry_join": ["{{ consul_server_ip }}"],
 }
