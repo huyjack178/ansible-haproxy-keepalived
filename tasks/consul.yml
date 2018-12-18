@@ -4,10 +4,6 @@
   become_method: sudo
   gather_facts: yes
   tags: [consul]
-  vars:
-    consul_version: 1.4.0
-    consul_server_ip: {{ ansible_ssh_host }}
-    consul_config_dir: /etc/systemd/system/consul.d
   tasks:
    - name: Install unzip
      apt: name=unzip state=present
