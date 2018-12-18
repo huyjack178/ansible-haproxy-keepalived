@@ -1,3 +1,11 @@
+- name: Install dependent python modules
+  pip:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - docker-py==1.10.6
+    - docker-compose==1.9.0
+    
 - name: Pull and run Docker consul
   docker_container:
     name: consul-{{ ansible_hostname }}
