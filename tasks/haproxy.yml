@@ -1,6 +1,6 @@
 ---
 - name: Install python-pycurl
-  action: apt pkg=$item state=latest
+  action: apt pkg={{ item }} state=latest
   with_items:
     - python-pycurl
 
