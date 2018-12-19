@@ -50,7 +50,8 @@
 - name: register Keepalived service to Consul
   consul:
     service_name: keepalived
-    service_port: 80
+    service_port: 8080
+    http: http://{{ keepalived_vip }}:8080
     interval: 60s
 
 - name: register Keepalived service to Consul
