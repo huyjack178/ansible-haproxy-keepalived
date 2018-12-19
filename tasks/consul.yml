@@ -3,10 +3,6 @@
   apt: name=unzip state=present
   become: true
 
-- name: Change host name
-  hostname:
-    name: "ubuntu-{{ ansible_ssh_host }}"
-
 - name: Install Consul
   become: true
   unarchive:
