@@ -6,11 +6,9 @@
     - python-pip
 
 - name: Install dependent python modules
-    pip:
-    name: "{{item}}"
+  pip:
+    name: python-consul
     state: present
-    with_items:
-      - python-consul
 
 - name: Ensure apt_repo haproxy added
   apt_repository:
