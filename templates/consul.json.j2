@@ -4,7 +4,11 @@
 	"ui": true,
 	"advertise_addr": "{{ ansible_ssh_host }}",
 	"client_addr": "0.0.0.0",
+  	"bind_addr": "0.0.0.0",
+	"skip_leave_on_interrupt": true,
+  	"leave_on_terminate": true,
 	"data_dir": "/tmp/consul",
-	"bootstrap_expect": 3,
-	"start_join": ["{{ consul_server_ip }}"]
+	"start_join": ["{{ consul_server_ip }}"],
+	"log_level": "INFO",
+	"bootstrap_expect": {{ consul_server_count }}
 }
