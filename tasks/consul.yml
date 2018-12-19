@@ -29,6 +29,7 @@
   template: 
     src: consul.json.j2
     dest: "{{consul_config_dir}}/init.json"
+  notify: restart consul
 
 - name: Ensure consul's running
   become: true
