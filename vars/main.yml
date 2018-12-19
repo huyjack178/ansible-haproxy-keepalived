@@ -12,3 +12,4 @@ consul_version: 1.4.0
 consul_config_dir: /etc/systemd/system/consul.d
 consul_server_ip: 10.19.10.155
 consul_server_count: 3
+consul_datacenter: nexcel_dc

@@ -10,5 +10,6 @@
 	"data_dir": "/tmp/consul",
 	"start_join": ["{{ consul_server_ip }}"],
 	"log_level": "INFO",
-	"bootstrap_expect": {{ consul_server_count }}
+	"bootstrap_expect": {{ consul_server_count }},
+	"datacenter": "{{ consul_datacenter }}"
 }
