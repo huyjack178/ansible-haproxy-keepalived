@@ -33,3 +33,10 @@
 
 - name: Ensure rsyslog is started and enabled on boot.
   service: name=rsyslog state=started enabled=yes
+
+- name: register HAProxy service to Consul with curl check
+  consul:
+    service_name: haproxy
+    service_port: 8080
+    http: http://localhost:8080
+    interval: 60s
