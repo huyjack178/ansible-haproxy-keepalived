@@ -3,6 +3,7 @@
   action: apt pkg={{ item }} state=latest
   with_items:
     - python-pycurl
+    - python-consul
 
 - name: Ensure apt_repo haproxy added
   apt_repository:
