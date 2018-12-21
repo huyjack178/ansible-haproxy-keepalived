@@ -2,9 +2,9 @@
 - name: Install Consul Template
   become: true
   unarchive:
-    src: {{ consul_template_http_src }}
+    src: "{{ consul_template_http_src }}"
     remote_src: yes
-    dest: {{ consul_template_bin_path }}
+    dest: "{{ consul_template_bin_path }}"
     creates: "{{ consul_template_bin_path }}/consul_template"
     mode: 0555
 
@@ -23,7 +23,7 @@
 - name: Deploy consul-template configuration
   template: 
     src: consul-template.conf.j2 
-    dest: {{ consul_template_config_file_path }}
+    dest: "{{ consul_template_config_file_path }}"
   notify: restart consul-template
 
 - name: Ensure consul-template service is started
@@ -32,5 +32,5 @@
 - name: configure haproxy consul template
   template: 
     src: haproxy.cmtpl.j2 
-    dest: {{ consul_template_haproxy_template_dest }}
+    dest: "{{ consul_template_haproxy_template_dest }}"
   notify: restart consul-template
