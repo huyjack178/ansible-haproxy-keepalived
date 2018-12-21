@@ -23,5 +23,5 @@ consul_template_config_file_path: '{{consul_template_config_dir}}/consul-templat
 consul_template_manage_service: true
 consul_template_consul_addr: '{{consul_server_ip}}:8500'
 consul_template_retry: '10s'
-consul_template_max_stale: '10m',
+consul_template_max_stale: '10m'
 consul_template_haproxy_template_dest: '/etc/consul-template/haproxy.cmtpl'
