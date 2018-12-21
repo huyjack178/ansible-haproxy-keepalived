@@ -1,0 +1,36 @@
+---
+- name: Install Consul Template
+  become: true
+  unarchive:
+    src: {{consul_template_http_src}}
+    remote_src: yes
+    dest: {{ consul_template_bin_path }}
+    creates: {{ consul_template_bin_path }}/consul_template
+    mode: 0555
+
+- name: Deploy Consul-template systemd configuration
+  template: 
+    src: consul-template.service.j2 
+    dest: /lib/systemd/system/consul-template.service
+  notify: reload-systemd
+
+- name: Ensure config directory exists
+  become: true
+  file: 
+    path: "{{ consul_template_config_dir }}"
+    state: directory
+
+- name: Deploy consul-template configuration
+  template: 
+    src: consul-template.conf.j2 
+    dest: {{consul_template_config_file_path}}
+  notify: restart consul-template
+
+- name: Ensure consul-template service is started
+  service: name=consul-template state=started
+
+- name: configure haproxy consul template
+  template: 
+    src: haproxy.cmtpl.j2 
+    dest: {{consul_template_haproxy_template_dest}}
+  notify: restart consul-template

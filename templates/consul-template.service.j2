@@ -1,0 +1,10 @@
+[Unit]
+Description=consul-template
+
+[Service]
+Restart=on-failure
+ExecStart={{ consul_template_bin_path }}/consul-template -config={{ consul_template_config_file_path }}
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

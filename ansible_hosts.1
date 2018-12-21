@@ -1,0 +1,7 @@
+[default] 
+haproxy1 ansible_ssh_host=10.19.10.154 ansible_ssh_user=root ansible_ssh_pass=1qaz@WSX keepalived_priority=101 consul_node_name=consul-server-1
+haproxy2 ansible_ssh_host=10.19.10.155 ansible_ssh_user=root ansible_ssh_pass=1qaz@WSX keepalived_priority=100 consul_node_name=consul-server-2
+
+[windows]
+win1 ansible_host=10.18.200.122 ansible_user=harrison.nguyen@SPVN.LOCAL ansible_password=Harrison1782 ansible_winrm_transport=kerberos ansible_port=5986 ansible_connection=winrm ansible_winrm_server_cert_validation=ignore
+win2 ansible_host=10.18.200.123 ansible_user=harrison.nguyen@SPVN.LOCAL ansible_password=Harrison1782 ansible_winrm_transport=kerberos ansible_port=5986 ansible_connection=winrm ansible_winrm_server_cert_validation=ignore
