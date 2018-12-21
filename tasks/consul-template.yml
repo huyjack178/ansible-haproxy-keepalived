@@ -12,7 +12,6 @@
   template: 
     src: consul-template.service.j2 
     dest: /lib/systemd/system/consul-template.service
-  notify: reload-systemd
 
 - name: Ensure config directory exists
   become: true
