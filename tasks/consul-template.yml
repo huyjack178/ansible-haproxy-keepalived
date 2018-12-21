@@ -5,7 +5,7 @@
     src: {{consul_template_http_src}}
     remote_src: yes
     dest: {{ consul_template_bin_path }}
-    creates: {{ consul_template_bin_path }}/consul_template
+    creates: "{{ consul_template_bin_path }}/consul_template"
     mode: 0555
 
 - name: Deploy Consul-template systemd configuration
