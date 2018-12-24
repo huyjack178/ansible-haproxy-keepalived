@@ -88,4 +88,4 @@ backend skynex
     compression algo gzip
     compression type text/css text/html text/javascript application/javascript text/plain text/xml application/json
     {{range service "skynex"}}
-    server {{.Node}} {{.Address}}:{{.Port}}{{end}} check on-marked-down shutdown-sessions
+    server {{.Node}} {{.Address}}:{{.Port}} check on-marked-down shutdown-sessions {{end}} 
