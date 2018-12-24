@@ -1,7 +1,7 @@
 #{{ ansible_managed }}
 
 consul {
-  address = "{{consul_template_consul_addr}}"
+  address = "locahost:8600"
   retry {
     enabled = true
     attempts = 12
