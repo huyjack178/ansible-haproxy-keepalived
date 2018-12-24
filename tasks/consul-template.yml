@@ -29,7 +29,7 @@
   service: name=consul-template state=started
 
 - name: configure haproxy consul template
-  template: 
-    src: haproxy.cmtpl.j2 
+  copy: 
+    src: haproxy.cmtpl
     dest: "{{ consul_template_haproxy_template_dest }}"
   notify: restart consul-template
