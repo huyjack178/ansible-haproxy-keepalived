@@ -4,6 +4,7 @@ consul {
   address = "{{consul_template_consul_addr}}"
   retry {
     enabled = true
+    attempts = 12
     backoff = "{{consul_template_retry}}"
   }
 }
@@ -11,6 +12,6 @@ max_stale = "{{consul_template_max_stale}}"
 pid_file = "/var/run/consul-template.pid"
 template {
   source = "{{consul_template_haproxy_template_dest}}"
-  destination: "/etc/haproxy/haproxy.cfg"
-  command: "sudo service haproxy reload"
+  destination = "/etc/haproxy/haproxy.cfg"
+  command = "sudo service haproxy reload"
 }
