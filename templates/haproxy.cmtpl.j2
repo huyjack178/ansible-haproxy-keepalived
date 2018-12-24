@@ -75,3 +75,17 @@ backend mSite
     stick on int(1)
     server mSite1 10.18.200.202:7220 check on-marked-down shutdown-sessions
     server mSite2 10.18.200.209:7220 check backup on-marked-down shutdown-sessions
+
+frontend skynexFrontEnd
+    bind *:6969
+    tcp-request inspect-delay 10s
+    tcp-request content track-sc0 src table st_src_global
+    http-request deny if { sc_http_req_rate(0) gt 100 }
+    http-request deny if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }
+    default_backend skynex
+
+backend skynex
+    compression algo gzip
+    compression type text/css text/html text/javascript application/javascript text/plain text/xml application/json
+    {{range service "skynex.service.consul"}}
+    server {{.Node}} {{.Address}}:{{.Port}}{{end}} check on-marked-down shutdown-sessions
