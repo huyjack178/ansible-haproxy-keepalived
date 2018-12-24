@@ -1,11 +1,16 @@
 #{{ ansible_managed }}
 
-consul = "{{consul_template_consul_addr}}"
-retry = "{{consul_template_retry}}"
+consul {
+  address = "{{consul_template_consul_addr}}"
+  retry {
+    enabled = true
+    backoff = "{{consul_template_retry}}"
+  }
+}
 max_stale = "{{consul_template_max_stale}}"
 pid_file = "/var/run/consul-template.pid"
 template {
-  source = "{{consul_template_haproxy_template_dest}}",
-  destination: '/etc/haproxy/haproxy.cfg',
+  source = "{{consul_template_haproxy_template_dest}}"
+  destination: '/etc/haproxy/haproxy.cfg'
   command: 'service haproxy reload'
 }
