@@ -54,7 +54,6 @@ frontend test
     tcp-request content track-sc0 src table st_src_global
     tcp-request content reject if { sc_conn_cur(0) gt 1000 }
     http-request cache-use test
-    redirect scheme https code 301
     http-response cache-store test
     default_backend mSite
 		
