@@ -42,10 +42,8 @@ backend st_src_global
 
 frontend httpsin
         bind *:80
-        bind *:443 ssl crt /etc/haproxy/docker.pem alpn h2,http/1.1
         mode http
         redirect scheme https if !{ ssl_fc }
-
 
 frontend test1
     bind *:7223
