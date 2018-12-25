@@ -28,13 +28,13 @@
     path: /etc/haproxy
     state: directory
 
-- name: Copy HAProxy configuration in place.
-  template:
-    src: haproxy.cfg.j2
-    dest: /etc/haproxy/haproxy.cfg
-    backup: yes
-    validate: haproxy -f %s -c
-  notify: restart haproxy
+# - name: Copy HAProxy configuration in place.
+#   template:
+#     src: haproxy.cfg.j2
+#     dest: /etc/haproxy/haproxy.cfg
+#     backup: yes
+#     validate: haproxy -f %s -c
+#   notify: restart haproxy
 
 - name: Ensure HAProxy is started and enabled on boot.
   service: name=haproxy state=started enabled=yes
